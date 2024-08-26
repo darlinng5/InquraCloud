@@ -1,0 +1,38 @@
+{
+  "name": "inqura-cloud",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "electron": "electron .",
+    "electron:build": "ng build --prod && electron-builder build"
+  },
+  "build": {
+    "appId": "com.inquracloud.inquraapp",
+    "productName": "Tu App Angular",
+    "files": [
+      "dist/**/*",
+      "main.js"
+    ],
+    "directories": {
+      "output": "release/"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}
