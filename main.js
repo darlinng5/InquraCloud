@@ -7,7 +7,7 @@ const { updateElectronApp, UpdateSourceType } = require('update-electron-app')
 let win
 
 function createWindow() {
-  win = new BrowserWindow({ width: 1200, height: 800, fullscreen:true })
+  win = new BrowserWindow({ width: 1200, height: 800 })
 
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'dist/inqura/index.html'),
@@ -22,10 +22,10 @@ function createWindow() {
 updateElectronApp({
     updateSource: {
       type: UpdateSourceType.ElectronPublicUpdateService,
-      repo: 'darlinng5/InquraCloud'
+      repo: 'darlinng5/InquraCloud',
+      host:'https://update.electronjs.org'
     },
     updateInterval: '1 hour',
-    logger: require('electron-log')
   })
 
 

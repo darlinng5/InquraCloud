@@ -1,6 +1,6 @@
 {
     "name": "inqura-cloud",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
@@ -13,6 +13,7 @@
         "electron-packager": "^15.5.2"
     },
     "dependencies": {
+        "electron-log": "^5.1.7",
         "update-electron-app": "^3.0.0"
     }
 }
