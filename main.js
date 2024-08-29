@@ -25,7 +25,7 @@ updateElectronApp({
       repo: 'darlinng5/InquraCloud',
       host:'https://update.electronjs.org'
     },
-    updateInterval: 300000,
+    updateInterval: '5 minutes',
   })
 
 
