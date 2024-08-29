@@ -1,2 +1,5 @@
 node_modules
 release-builds
+dist\win-unpacked
+/dist/win-unpacked
+/dist/.cache

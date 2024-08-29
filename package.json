@@ -1,19 +1,44 @@
 {
     "name": "inqura-cloud",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "main.js",
     "repository": {
-  "type": "git",
-  "url": "https://github.com/darlinng5/InquraCloud.git"
-},
+        "type": "git",
+        "url": "https://github.com/darlinng5/InquraCloud.git"
+    },
     "scripts": {
         "start": "electron .",
         "package": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icon.ico --prune=true --out=release-builds",
         "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-        "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+        "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
+        "build": "electron-builder",
+        "build-and-sign": "electron-builder --win --publish never"
+    },
+    "build": {
+        "appId": "com.inqura.cloud",
+        "files": [
+            "*.js",
+            "build",
+            "dist/**/*",
+            "node_modules"
+          ],
+        "win": {
+            "target": "nsis",
+            "signingHashAlgorithms": [
+                "sha256"
+            ],
+            "certificateFile": "C:\\Users\\Dgonzales\\Desktop\\inqura.pfx",
+            "certificatePassword": "your-password"
+        },
+        "publish": {
+            "provider": "github",
+            "owner": "darlinng5",
+            "repo": "InquraCloud"
+        }
     },
     "devDependencies": {
         "electron": "^13.6.9",
+        "electron-builder": "^22.14.13",
         "electron-packager": "^15.5.2"
     },
     "dependencies": {
