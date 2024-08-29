@@ -1,36 +1,18 @@
 {
-  "name": "electron-updater-example",
-  "version": "0.8.1",
-  "main": "main.js",
-  "description": "electron-updater example project",
-  "author": "Matt Haggard",
-  "scripts": {
-    "publish": "electron-builder -p always"
-  },
-  "devDependencies": {
-    "electron": "^14.0.1",
-    "electron-builder": "^22.11.7",
-    "electron-notarize": "^1.1.1"
-  },
-  "dependencies": {
-    "electron-log": "^4.4.1",
-    "electron-updater": "^4.3.9"
-  },
-  "build": {
-    "appId": "com.github.iffy.electronupdaterexample",
-    "afterSign": "./build/notarize.js",
-    "mac": {
-      "category": "your.app.category.type"
+    "name": "inqura-cloud",
+    "version": "1.0.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "package": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icon.ico --prune=true --out=release-builds",
+        "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+        "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
     },
-    "win": {
-      "target": "nsis"
+    "devDependencies": {
+        "electron": "^13.6.9",
+        "electron-packager": "^15.5.2"
     },
-    "nsis": {
-      "oneClick": false
-    },
-    "linux": {
-      "category": "your.app.category.type",
-      "target": "AppImage"
+    "dependencies": {
+        "update-electron-app": "^3.0.0"
     }
-  }
 }
